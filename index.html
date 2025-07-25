@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="manifest" href="manifest.json">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Golf Orbit</title>
+    <title>Unity WebGL Player | Golf Orbit</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="https://assets.msn.com/staticsb/statics/latest/msstart-games-sdk/msstart-v1.0.0-rc.20.min.js"></script>
@@ -23,7 +23,7 @@
 
     <script>
         window.addEventListener("load", function () {
-            if ("serviceWorker" in navigator) {
+            if ("ServiceWorker" in navigator) {
                 navigator.serviceWorker.register("ServiceWorker.js");
             }
         });
@@ -55,7 +55,7 @@
         var buildUrl = "Build";
         var loaderUrl = buildUrl + "/9853637125e801e9aae48e78dbbdcfca.loader.js";
         var config = {
-            dataUrl: buildUrl + "/f9080267fd9a4018f23134fac4227841.data.unityweb",
+            dataUrl: buildUrl + "/e92a539c567c0810cd0e349f019cf4ec.data.unityweb",
             frameworkUrl: buildUrl + "/83401391d7620cf0e16fd2ee9a39ccd4.framework.js.unityweb",
             codeUrl: buildUrl + "/002dcfd148e9a8d775a223990dfec544.wasm.unityweb",
             streamingAssetsUrl: "StreamingAssets",
