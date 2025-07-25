@@ -1,15 +1,31 @@
 {
-    "name": "Golf Orbit",
-    "short_name": "Golf Orbit",
+    "name": { { { "JSON.stringify(PRODUCT_NAME)" } } },
+    "short_name": { { { "JSON.stringify(PRODUCT_NAME)" } } },
+    "description": { { { "JSON.stringify(PRODUCT_DESCRIPTION)" } } },
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#000000",
     "theme_color": "#000",
-    "description": "Golf Orbit",
-    "icons": [{
-      "src": "TemplateData/icons/unity-logo-dark.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }]
-  }
+    "id": "TapNationSAS.GolfOrbit",
+    "launch_handler": {
+        "client_mode": "auto"
+    },
+    "ms_start_compatible": true,
+    "categories": [
+        "games"
+    ],
+    "dir": "auto",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "Icons/512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "Icons/1920x1080.png",
+            "sizes": "1920x1080",
+            "type": "image/png"
+        }
+    ]
+}
