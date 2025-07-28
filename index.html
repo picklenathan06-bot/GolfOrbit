@@ -138,12 +138,46 @@
         }
 
         // Show rewarded ad
-        function ShowRewardedAd() {
-    alert("Simulating ad...");
-    if (typeof gameInstance !== 'undefined') {
-        gameInstance.SendMessage('MSStartIntegration', 'OnRewardedAdComplete');
-    }
-}
+ function ShowRewardedAd() {
+            if (!rewardedAdInstance) {
+                console.warn('Rewarded ad not loaded');
+                return;
+            }
+
+            // 🔇 Mute game audio before showing ad
+            if (typeof gameInstance !== 'undefined' && gameInstance.SendMessage) {
+                gameInstance.SendMessage('MSStartIntegration', 'MuteAudio');
+            } else {
+                console.error('❌ Unity gameInstance.SendMessage not ready');
+                return; // Exit early if Unity not ready
+            }
+
+            $msstart.showAdsAsync(rewardedAdInstance.instanceId).then(ad => {
+                ad.showAdsCompletedAsync.then(() => {
+                    console.log('Rewarded ad watched fully');
+                    if (typeof gameInstance !== 'undefined' && gameInstance.SendMessage) {
+                        gameInstance.SendMessage('MSStartIntegration', 'OnRewardedAdComplete');
+                    }
+                    // 🔊 Unmute game audio after ad
+                    if (typeof gameInstance !== 'undefined' && gameInstance.SendMessage) {
+                        gameInstance.SendMessage('MSStartIntegration', 'UnmuteAudio');
+                    }
+                    LoadRewardedAd(); // Reload for next time
+                }).catch(err => {
+                    console.warn('Rewarded ad skipped or failed', err);
+                    // 🔊 Unmute game audio even if skipped
+                    if (typeof gameInstance !== 'undefined' && gameInstance.SendMessage) {
+                        gameInstance.SendMessage('MSStartIntegration', 'UnmuteAudio');
+                    }
+                });
+            }).catch(err => {
+                console.error('ShowAdsAsync error', err);
+                // 🔊 Unmute game audio on error
+                if (typeof gameInstance !== 'undefined' && gameInstance.SendMessage) {
+                    gameInstance.SendMessage('MSStartIntegration', 'UnmuteAudio');
+                }
+            });
+        }
 
     </script>
 
