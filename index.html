@@ -52,18 +52,18 @@
             updateBannerVisibility();
         }
 
-        var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/9853637125e801e9aae48e78dbbdcfca.loader.js";
-        var config = {
-            dataUrl: buildUrl + "/8403244afb799011e14a6ba67c97e832.data.unityweb",
-            frameworkUrl: buildUrl + "/c5e3ce1a0242c704135be4d866484562.framework.js.unityweb",
-            codeUrl: buildUrl + "/2985944c77e87389bde2579957a43f70.wasm.unityweb",
-            streamingAssetsUrl: "StreamingAssets",
-            companyName: "TapNationSAS",
-            productName: "Golf Orbit",
-            productVersion: "1.2",
-            showBanner: unityShowBanner,
-        };
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/9853637125e801e9aae48e78dbbdcfca.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/c435997b2cc2b4e5ff1d329762ee774d.data.unityweb",
+        frameworkUrl: buildUrl + "/04a051262f8f16406986e06b8539c371.framework.js.unityweb",
+        codeUrl: buildUrl + "/41e18e97d75251175935126c5d24b998.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "TapNationSAS",
+        productName: "Golf Orbit",
+        productVersion: "1.2",
+        showBanner: unityShowBanner,
+      };
 
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
             var meta = document.createElement('meta');
@@ -93,7 +93,17 @@
         };
         document.body.appendChild(script);
     </script>
+    <script>
 
+        function NotifyMuteAudio()
+        {
+            $msstart.notifyGameMuted();
+        }
+        function NotifyUnmuteAudio() {
+            $msstart.notifyGameUnmuted();
+        }
+
+    </script>
     <script>
         // GLOBAL variables for ads
         let interstitialAdInstance = null;
@@ -186,5 +196,6 @@
 
 </body>
 </html>
+
 
 
